@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# Function to generate comments with descriptions
+generate_comment() {
+  # Prompt the user for a description
+  read -p "Enter a description for your code: " description
+
+  # Check if the user provided a description
+  if [ -z "$description" ]; then
+    echo "Error: You must provide a description."
+    exit 1
+  fi
+
+  # Generate the comment block with the description
+  comment_block="/**\n * $description\n */"
+
+  # Output the comment block
+  echo -e "$comment_block"
+}
+
 # Check if Betty is installed
 if ! command -v betty &> /dev/null; then
     echo "Betty is not installed. Please install it."
@@ -28,7 +46,10 @@ else
     sed -i 's/MyVariable/my_variable/g' "$1"
 
     # Add more sed commands to address other style issues here
-    # For function length, manual code refactoring is typically required.
+    # For function length, manual code refactoring is typically required.    
 
-    echo "Code has been formatted to comply with Betty's style guidelines."
+    echo "Code has been formatted to comply with Betty's style guidelines."  
 fi
+
+# Call the generate_comment function to generate comments with descriptions  
+generate_comment
