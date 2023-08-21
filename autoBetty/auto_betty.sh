@@ -45,6 +45,9 @@ else
     # Rename variables from uppercase to lowercase
     sed -i 's/MyVariable/my_variable/g' "$1"
 
+    # Remove trailing whitespace
+    sed -i 's/[[:space:]]\+$//' "$1"
+
     # Add more sed commands to address other style issues here
     # For function length, manual code refactoring is typically required.    
 
