@@ -21,13 +21,13 @@ To use this script, follow these steps:
 2. Make the script executable with the following command:
 
    ```bash
-   e.g: chmod +x format_betty.sh
+   chmod +x auto_betty.sh
    ```
 
 3. Run the script with the name of the file you want to format as the argument:
 
    ```bash
-   e.g: ./format_betty.sh <filename>
+   ./auto_betty.sh <filename>
    ```
 
    Replace `<filename>` with the name of your C file.
