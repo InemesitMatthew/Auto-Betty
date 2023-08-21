@@ -16,7 +16,7 @@ Before using this script, make sure you have the following requirements installe
 
 To use this script, follow these steps:
 
-1. Clone this repository to your local machine or download the script (e.g:`format_betty.sh`).
+1. Clone this repository to your local machine or download the script (`auto_betty.sh`).
 
 2. Make the script executable with the following command:
 
