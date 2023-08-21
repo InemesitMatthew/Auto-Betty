@@ -1,6 +1,6 @@
+
 ```markdown
-#AUTO-BETTY
-# Betty Style Checker Script
+# AUTO-BETTY - Betty Style Checker Script
 
 ## Overview
 
@@ -12,45 +12,52 @@ Before using this script, make sure you have the following requirements installe
 
 - [Betty Style Checker](https://github.com/holbertonschool/Betty): Ensure that you have Betty's style guidelines and checker installed on your system.
 
+## Installation
+
+To install and set up Auto Betty for global use within your environment, follow these steps:
+
+1. Clone this repository to your local machine:
+
+   ```bash
+   git clone https://github.com/InemesitMatthew/auto-betty.git
+   ```
+
+
+2. Navigate to the Auto-Betty directory:
+
+   ```bash
+   cd Auto-Betty/
+   cd autoBetty/
+   ```
+
+3. Run the installation script:
+
+   ```bash
+   ./installAutoBetty.sh
+   ```
+
+   This script will automatically search for and install `auto_betty.sh`, making it globally accessible within your environment.
+
 ## Usage
 
-To use this script, follow these steps:
+To use Auto Betty for formatting your C code, open your terminal and run:
 
-1. Clone this repository to your local machine or download the script (`auto_betty.sh`).
+```bash
+auto_betty <filename>
+```
 
-2. Make the script executable with the following command:
+Replace `<filename>` with the name of the C source file you want to format. Auto Betty will automatically apply the required formatting according to Betty's style guidelines.
 
-   ```bash
-   chmod +x auto_betty.sh
-   ```
+Please note that this script provides basic automatic fixes for common style issues. It may not address all issues, especially those related to function length. Manual code refactoring may be necessary for such cases.
 
-3. Run the script with the name of the file you want to format as the argument:
+Always make sure to back up your code before running automated formatting scripts, as they can potentially introduce unintended changes.
 
-   ```bash
-   ./auto_betty.sh <filename>
-   ```
-
-   Replace `<filename>` with the name of your C file.
-
-4. The script will run the Betty checker on the specified file. If Betty detects any style violations, it will provide feedback.
-
-5. If Betty reports style issues, the script will automatically attempt to correct common issues, such as indentation and variable naming, based on your preferred coding style. You may need to modify the script to match your specific style.
-
-6. After running the script, your code should be formatted to comply with Betty's style guidelines.
-
-## Notes
-
-- This script provides basic automatic fixes for common style issues. It may not address all issues, especially those related to function length. Manual code refactoring may be necessary for such cases.
-
-- Always make sure to back up your code before running automated formatting scripts, as they can potentially introduce unintended changes.
-
-- Review and customize the `sed` commands in the script to match your coding style and Betty's specific recommendations.
+Review and customize the sed commands in the script to match your coding style and Betty's specific recommendations.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
 
 ## Acknowledgments
 
-- [Betty Style Checker](https://github.com/holbertonschool/Betty) for providing a valuable tool for enforcing coding style guidelines in C programming.
-
+- Betty Style Checker for providing a valuable tool for enforcing coding style guidelines in C programming.
