@@ -53,5 +53,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - [Betty Style Checker](https://github.com/holbertonschool/Betty) for providing a valuable tool for enforcing coding style guidelines in C programming.
-```
 
