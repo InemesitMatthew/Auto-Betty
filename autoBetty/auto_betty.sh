@@ -26,7 +26,8 @@ fi
 
 # Check if an input file is provided as an argument
 if [ $# -ne 1 ]; then
-    echo "Usage: $0 <filename>"
+    echo "Usage: auto_betty <filename>"
+    echo "Example: auto_betty my_file.c"
     exit 1
 fi
 
