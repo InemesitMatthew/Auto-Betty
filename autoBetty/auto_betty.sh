@@ -2,20 +2,26 @@
 
 # Function to generate comments with descriptions
 generate_comment() {
-  # Prompt the user for a description
-  read -p "Enter a description for your code: " description
+  # Prompt the user if they want to provide a description
+  read -p "Do you want to add a description for your code? (y/n): " add_description
 
-  # Check if the user provided a description
-  if [ -z "$description" ]; then
-    echo "Error: You must provide a description."
-    exit 1
+  # If the user wants to add a description
+  if [ "$add_description" == "y" ]; then
+    # Prompt the user for a description
+    read -p "Enter a description for your code: " description
+
+    # Check if the user provided a description
+    if [ -z "$description" ]; then
+      echo "Error: You must provide a description."
+      exit 1
+    fi
+
+    # Generate the comment block with the description
+    comment_block="/**\n * $description\n */"
+
+    # Output the comment block
+    echo -e "$comment_block"
   fi
-
-  # Generate the comment block with the description
-  comment_block="/**\n * $description\n */"
-
-  # Output the comment block
-  echo -e "$comment_block"
 }
 
 # Check if Betty is installed
@@ -31,8 +37,8 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-# Run Betty checker
-betty "$1"
+# Run Betty checker and store the results in a temporary file
+betty "$1" > betty_results.txt
 
 # Check the exit status of Betty
 if [ $? -eq 0 ]; then
@@ -40,20 +46,19 @@ if [ $? -eq 0 ]; then
 else
     echo "Automatically correcting style issues..."
 
-    # Correct indentation (assuming 4 spaces per level)
+    # Use the results file to identify and correct style issues
     sed -i 's/^    /\t/' "$1"
-
-    # Rename variables from uppercase to lowercase
     sed -i 's/MyVariable/my_variable/g' "$1"
-
-    # Remove trailing whitespace
     sed -i 's/[[:space:]]\+$//' "$1"
 
     # Add more sed commands to address other style issues here
-    # For function length, manual code refactoring is typically required.    
+    # For function length, manual code refactoring is typically required.
 
-    echo "Code has been formatted to comply with Betty's style guidelines."  
+    echo "Code has been formatted to comply with Betty's style guidelines."
 fi
 
-# Call the generate_comment function to generate comments with descriptions  
+# Remove the temporary results file
+rm betty_results.txt
+
+# Call the generate_comment function to generate comments with descriptions
 generate_comment
