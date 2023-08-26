@@ -20,7 +20,7 @@ generate_comment() {
     comment_block="/**\n * $description\n */"
 
     # Output the comment block
-    echo -e "$comment_block"
+    echo -e "$comment_block" >> "$1"
   fi
 }
 
@@ -52,13 +52,13 @@ else
     sed -i 's/[[:space:]]\+$//' "$1"
 
     # Add more sed commands to address other style issues here
-    # For function length, manual code refactoring is typically required.
+    # For function length, manual code refactoring is typically required.        
 
-    echo "Code has been formatted to comply with Betty's style guidelines."
+    echo "Code has been formatted to comply with Betty's style guidelines."      
 fi
 
 # Remove the temporary results file
 rm betty_results.txt
 
-# Call the generate_comment function to generate comments with descriptions
-generate_comment
+# Call the generate_comment function to generate comments with descriptions      
+generate_comment "$1"
